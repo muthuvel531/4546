@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Services UI</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- React & Babel -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #000;
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .app {
+            width: 360px;
+            background: #0e0e0e;
+            padding: 20px;
+            border-radius: 32px;
+            box-shadow: 0 0 35px rgba(162, 94, 255, 0.35);
+            display: flex;
+            flex-direction: column;
+            min-height: 640px;
+        }
+
+        /* Top Section */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .welcome {
+            font-size: 16px;
+            color: #bdbdbd;
+        }
+
+        .username {
+            font-size: 24px;
+            font-weight: 600;
+            color: #eecda3;
+        }
+
+        .top-bar i {
+            font-size: 18px;
+            margin-left: 14px;
+            cursor: pointer;
+        }
+
+        .section-title {
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        /* Special Offers */
+       /* Special Offers Container */
+.offer-card-container {
+    display: flex;
+    gap: 12px;
+    overflow: hidden; /* hide scroll bar */
+    position: relative;
+    width: 100%;
+}
+
+/* Sliding wrapper for animation */
+.offer-slider {
+    display: flex;
+    width: max-content;
+    animation: slideAnimation 10s linear infinite;
+}
+
+.offer-card {
+    flex: 0 0 220px;
+    background: linear-gradient(45deg, #883aff, #5146ff);
+    border-radius: 18px;
+    padding: 16px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px;
+    position: relative;
+    margin-right: 12px;
+}
+
+.offer-card i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+}
+@keyframes slideAnimation {
+    0%   { transform: translateX(0); }
+    25%  { transform: translateX(-232px); } /* card width + gap */
+    50%  { transform: translateX(-464px); }
+    75%  { transform: translateX(-656px); }
+    100% { transform: translateX(0); }
+}
+/* Slide animation */
+
+        .offer-card h1 {
+            font-size: 32px;
+            margin-bottom: 4px;
+        }
+
+        .offer-card p {
+            font-size: 14px;
+        }
+
+        .offer-card span {
+            font-size: 12px;
+            opacity: 0.85;
+        }
+.offer-slider {
+    display: flex;
+    gap: 12px;
+    width: max-content;
+    animation: slideAnimation 10s linear infinite;
+}
+       
+.offer-card-container {
+    overflow: hidden; /* hide extra cards */
+    width: 100%;
+}
+
+.offer-slider:hover {
+    animation-play-state: paused; /* pause on hover */
+}
+        /* Services Grid */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .service-item {
+            background: #1a1a1a;
+            padding: 16px 8px;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-4px);
+            background: #222;
+        }
+
+        .service-item i {
+            font-size: 25px;
+            margin-bottom: 6px;
+        }
+
+        .service-item p {
+            font-size: 13px;
+        }
+
+        @media (hover: none) {
+            .service-item:hover {
+                transform: none;
+                background: #1a1a1a;
+            }
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-circle {
+            position: fixed;
+            left: 37%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            text-decoration: none;
+            background: linear-gradient(145deg, #2be86f, #1db954);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+            z-index: 1000;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .whatsapp-circle i {
+            color: #fff;
+            font-size: 26px;
+        }
+
+        .whatsapp-circle:hover {
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(-50%);
+            }
+
+            50% {
+                transform: translateY(-56%);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .whatsapp-circle {
+                left: 15%;
+                top: 40%;
+            }
+        }
+
+        /* Icon Colors */
+        .purple i {
+            color: #c08aff;
+        }
+
+        .orange i {
+            color: #ff9a62;
+        }
+
+        .blue i {
+            color: #4fa7ff;
+        }
+
+        .yellow i {
+            color: #ffd454;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            background: #1a1a1a;
+            padding: 14px 8px;
+            border-radius: 30px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        .nav-item {
+            text-align: center;
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .mu {
+            text-decoration: none;
+            color: white;
+            font-size: 11px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 5px;
+            align-items: center;
+        }
+
+        .nav-item i {
+            font-size: 18px;
+        }
+
+        .nav-item p {
+            font-size: 11px;
+            margin-top: 4px;
+        }
+
+        .nav-item:hover i,
+        .nav-item:hover p {
+            color: #a874ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function HomeUI() {
+            const [username, setUsername] = React.useState("");
+
+            React.useEffect(() => {
+                const name = localStorage.getItem("username");
+                if (name) setUsername(name);
+            }, []);
+
+            const offers = [
+                { percent: "30%", text: "Today's Special!", note: "Valid for all services today only" },
+                { percent: "25%", text: "Weekend Special!", note: "Discount on cleaning services" },
+                { percent: "20%", text: "Plumbing Offer!", note: "Save on plumbing today" }
+                ,
+                { percent: "10%", text: "Today's Special!", note: "Valid for all services today only" },
+               
+            ];
+
+            return (
+                <div className="app">
+                    {/* Top Bar */}
+                    <div className="top-bar">
+                        <div>
+                            <p className="welcome">Good Morning 👋</p>
+                            <h3 className="username">{username}</h3>
+                        </div>
+                        <div>
+                            <i className="fa-regular fa-bell"></i>
+                            <i className="fa-regular fa-user"></i>
+                        </div>
+                    </div>
+
+                    {/* Special Offers */}
+                    <div className="section-title">
+                        <h3>Special Offers</h3>
+                    </div>
+                    <div className="offer-card-container">
+                        <div className="offer-slider">
+                            {offers.map((offer, index) => (
+                                <div className="offer-card" key={index}>
+                                    <h1>{offer.percent}</h1>
+                                    <p>{offer.text}</p>
+                                    <span>{offer.note}</span>
+                                    <i className="fa-solid fa-gift"></i>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+
+                    {/* WhatsApp Floating */}
+                    <a href="https://wa.me/919384282397?text=Hi%20Bro" target="_blank" rel="noopener noreferrer"
+                        className="whatsapp-circle">
+                        <i className="fab fa-whatsapp"></i>
+                    </a>
+
+                    {/* Services Grid */}
+                    <div className="section-title"><h3>Services</h3></div>
+                    <div className="service-grid">
+                        <div className="service-item purple" onClick={() => location.href = 'cleaning.html'}>
+                            <i className="fa-solid fa-broom"></i>
+                            <p>Cleaning</p>
+                        </div>
+                        <div className="service-item orange" onClick={() => location.href = 'reairing.html'}>
+                            <i className="fa-solid fa-screwdriver-wrench"></i>
+                            <p>Repairing</p>
+                        </div>
+                        <div className="service-item blue" onClick={() => location.href = 'painiting.html'}>
+                            <i className="fa-solid fa-wrench"></i>
+                            <p>Plumbing</p>
+                        </div>
+                        <div className="service-item yellow" onClick={() => location.href = 'homecare.html'}>
+                            <i className="fa-solid fa-house-medical"></i>
+                            <p>Home Care</p>
+                        </div>
+                    </div>
+
+                    {/* Bottom Nav */}
+                    <div className="bottom-nav">
+                        <div className="nav-item" onClick={() => location.href = 'home.html'}>
+                            <i className="fa-solid fa-house"></i>
+                            <p>Home</p>
+                        </div>
+                        <div className="nav-item" onClick={() => location.href = 'bookingpage.html'}>
+                            <i className="fa-regular fa-calendar-check"></i>
+                            <p>Bookings</p>
+                        </div>
+                        <div className="nav-item" onClick={() => location.href = 'muthuvel.html'}>
+                            <i className="fa-regular fa-calendar"></i>
+                            <p>Calendar</p>
+                        </div>
+                        <div className="nav-item">
+                            <a href="https://wa.me/919384282397?text=Hi%20Bro" className="mu">
+                                <i className="fa-regular fa-envelope"></i>
+                                <p>Inbox</p>
+                            </a>
+                        </div>
+                        <div className="nav-item">
+                            <i className="fa-regular fa-user"></i>
+                            <p>Profile</p>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<HomeUI />);
+    </script>
+</body>
+
+</html>
