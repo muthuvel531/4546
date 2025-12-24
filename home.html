@@ -887,6 +887,91 @@
         font-size: clamp(10px, 2.5vw, 12px);
         margin-top: 2px;
     }
+     @media (max-width: 600px) {
+       
+
+    body {
+        overflow-y: auto;
+    }
+
+    .app {
+        padding: 12px;
+    }
+
+    /* Top bar */
+    .top-bar {
+        margin-bottom: 8px;
+    }
+
+    .username {
+        font-size: 20px;
+    }
+
+    /* Offer slider */
+    .offer-card-container {
+        margin-bottom: 12px;
+    }
+
+    .offer-slider {
+        animation-duration: 16s;
+    }
+
+    .offer-card {
+        width: 85vw;
+        height: 120px;
+        padding: 14px;
+    }
+
+    .offer-card h1 {
+        font-size: 24px;
+    }
+
+    /* Services grid */
+    .service-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 90px; /* space for bottom nav */
+    }
+
+    .service-item {
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .service-item i {
+        font-size: 22px;
+    }
+
+    .service-item p {
+        font-size: 11px;
+    }
+
+    /* WhatsApp floating button */
+    .whatsapp-circle {
+        bottom: 80px;
+        right: 16px;
+        width: 46px;
+        height: 46px;
+    }
+
+    .whatsapp-circle i {
+        font-size: 22px;
+    }
+
+    /* Bottom navigation */
+    .bottom-nav {
+        padding: 10px 0;
+        border-radius: 22px 22px 0 0;
+    }
+
+    .nav-item i {
+        font-size: 18px;
+    }
+
+    .nav-item p {
+        font-size: 10px;
+    }
+}
 </style>
   
 </head>
@@ -981,3 +1066,4 @@
 </body>
 
 </html>
+
